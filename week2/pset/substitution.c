@@ -119,17 +119,21 @@ string encipher(string plaintext, string key)
 
     for (int i = 0; i < plaintext_len; i++)
     {
-        char cipher_char;
         char current_char = plaintext[i];
 
-        if (islower(current_char))
+        if (isalpha(current_char))
         {
-            cipher_char = toupper(key[current_char - 'a']);
-            plaintext[i] = cipher_char + 32;
-        }
-        else if ((isupper(current_char)))
-        {
-            cipher_char = toupper(key[current_char - 'A']);
+            // find the alphabatical index of current char
+            // capitalize to make the key case insensetive
+            int key_index = toupper(current_char) - 'A';
+            // assume input text is upper case.
+            char cipher_char = toupper(key[key_index]);
+
+            // change to lower case if needed.
+            if (islower(current_char))
+            {
+                cipher_char += 32;
+            }
             plaintext[i] = cipher_char;
         }
     }
