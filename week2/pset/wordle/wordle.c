@@ -90,6 +90,7 @@ int main(int argc, string argv[])
     // print greeting, using ANSI color codes to demonstrate
     printf(GREEN"This is WORDLE50"RESET"\n");
     printf("You have %i tries to guess the %i-letter word I'm thinking of\n", guesses, wordsize);
+    printf(YELLOW"choice is: %s"RESET"\n", choice); // REMOVE
 
     // main game loop, one iteration for each guess
     for (int i = 0; i < guesses; i++)
@@ -105,7 +106,7 @@ int main(int argc, string argv[])
         for (int j = 0; j < wordsize; j++)
         {
             status[j] = WRONG;
-            printf("%i ", status[j]); // REMOVE
+            // printf("%i ", status[j]); // REMOVE
         }
 
 
@@ -161,6 +162,22 @@ int check_word(string guess, int wordsize, int status[], string choice)
                 // if they're the same position in the word, score EXACT points (green) and break so you don't compare that letter further
                 // if it's in the word, but not the right spot, score CLOSE point (yellow)
         // keep track of the total score by adding each individual letter's score from above
+    for (int i = 0; i < wordsize; i++)
+    {
+        char current_guess_char = guess[i];
+        char current_choice_char = choice[i];
+
+        if (current_guess_char == current_choice_char)
+        {
+            status[i] = EXACT;
+        }
+        else if (strstr(choice, &current_guess_char) != NULL)
+        {
+            status[i] = CLOSE;
+        }
+        printf("%i ", status[i]); // REMOVE
+        score += status[i];
+    }
 
     return score;
 }
