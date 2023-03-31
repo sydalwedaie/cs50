@@ -1,0 +1,23 @@
+sort1 uses: Bubble Sort
+
+How do you know?: This program shows quit fast results for the sorted lists, and increasingly
+longer times for the reversed and random lists. So there is a marked difference
+between the worst and best case scenarios. With O(n^2) and Ω(n), Bubble Sort is
+the only method that demonstrates this characteristic.
+
+sort2 uses: Merge Sort
+
+How do you know?: This program shows more or less the same results for all lists of the same size.
+This observation suggests that the worst and best case scenarios for this program
+are the same. Merge and Selection sorts both demonstrate this trait. However, a
+quick comparison with sort3 shows that sort2 times are much faster in every
+single test. Between merge sort with θ(nLog(n)) and Selection sort with θ(n^2),
+it's clear that sort2 used the Merge Sort.
+
+sort3 uses: Selection Sort
+
+How do you know?: When examined in isolation, this program also shows similar times for all lists
+of the same size, which again suggest it must be using either the merge or
+selection sort. However, the longer times compared to the sort2 program suggests
+it's using a much slower algorithm, which leaves us with Selection Sort.
+
