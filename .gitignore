@@ -1,5 +1,12 @@
+*
+!/**/
+!*.*
+
+# But do ignore these folders
+node_modules/
+vendor/
+
+# All others
 .DS_Store
-.devcontainer.json
 playground.c
 playground
-.vscode/
