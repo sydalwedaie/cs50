@@ -157,9 +157,9 @@ void print_candidates(void)
     for (int i = 0; i < candidate_count; i++)
     {
         printf("Name: %s, Votes: %i, Eliminated: %s\n",
-                candidates[i].name,
-                candidates[i].votes,
-                candidates[i].eliminated ? "true" : "false");
+               candidates[i].name,
+               candidates[i].votes,
+               candidates[i].eliminated ? "true" : "false");
     }
     printf("\n");
 }
@@ -211,7 +211,8 @@ bool print_winner(void)
     // TODO
     for (int j = 0; j < candidate_count; j++)
     {
-        if (candidates[j].votes > voter_count /2){
+        if (candidates[j].votes > voter_count / 2)
+        {
             printf("%s\n", candidates[j].name);
             return true;
         }
