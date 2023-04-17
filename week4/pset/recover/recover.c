@@ -21,38 +21,52 @@ int main(int argc, char *argv[])
     }
 
 
+    // variables used inside the loop to keep track of opened files
     int file_counter = 0;
+    int file_opened = 0;
     char file_name[8];
-    // printf("%lu\n", sizeof(*output));
+    FILE *output;
 
     BYTE buffer[BLOCK_SIZE];
-    while (fread(buffer, 1, BLOCK_SIZE, input))
+
+    while (fread(buffer, 1, BLOCK_SIZE, input) == BLOCK_SIZE)
     {
+        // in each iteration, we check the first three bytes for the signiture
         int is_jpg_sig = buffer[0] == 255 && buffer[1] == 216 && buffer[2] == 255;
 
-        if (is_jpg_sig)
+        // there will be three branches:
+        // sig is found and file is closed: open a new file and write current block
+        if (is_jpg_sig && !file_opened)
         {
-            sprintf(file_name, "%i.jpg", file_counter);
-            file_counter++;
-
-            FILE *output = fopen(file_name, "w");
-
-            fwrite(buffer, 1, BLOCK_SIZE, output);
-            fread(buffer, 1, BLOCK_SIZE, input);
-            is_jpg_sig = buffer[0] == 255 && buffer[1] == 216 && buffer[2] == 255;
-
-            while (!is_jpg_sig && ftell(input) != -1)
+            if (file_counter < 10)
             {
-                fwrite(buffer, 1, BLOCK_SIZE, output);
-                fread(buffer, 1, BLOCK_SIZE, input);
-                is_jpg_sig = buffer[0] == 255 && buffer[1] == 216 && buffer[2] == 255;
+                sprintf(file_name, "00%i.jpg", file_counter);
             }
+            else
+            {
+                sprintf(file_name, "0%i.jpg", file_counter);
+            }
+            file_counter++;
+            file_opened = 1;
 
+            output = fopen(file_name, "w");
+            fwrite(buffer, 1, BLOCK_SIZE, output);
+        }
+        // sig is not found but file is open: write the current block to the open file
+        else if (!is_jpg_sig && file_opened)
+        {
+            fwrite(buffer, 1, BLOCK_SIZE, output);
+        }
+        // sig is found and file is open: a new image is found so close the previous file
+        else if (is_jpg_sig && file_opened)
+        {
             fclose(output);
+            file_opened = 0;
+            // go back one block to make the next iteration right the signiture block to new file
             fseek(input, -BLOCK_SIZE, SEEK_CUR);
         }
-
     }
+    // output is never closed if the last branch is not run, so we close it explicitly after the loop
+    fclose(output);
+    fclose(input);
 }
-
-// 255 216 255
