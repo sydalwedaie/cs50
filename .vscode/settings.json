@@ -2,5 +2,7 @@
     "files.associations": {
         "cs50.h": "c",
         "*.tcc": "c"
-    }
+    },
+    "gitdoc.enabled": true,
+    "python.analysis.typeCheckingMode": "off"
 }
