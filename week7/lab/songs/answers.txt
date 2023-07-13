@@ -1,0 +1,12 @@
+Q. If `songs.db` contains the top 100 songs of one listener from 2018, how would you characterize their audio aura?
+A. Running the query `SELECT AVG(energy), AVG(valence), AVG(danceability) FROM songs` shows:
++-------------+--------------+-------------------+
+| AVG(energy) | AVG(valence) | AVG(danceability) |
++-------------+--------------+-------------------+
+| 0.65906     | 0.484443     | 0.71646           |
++-------------+--------------+-------------------+
+
+This person's energy and valence preferences are about the 0.5 mark, but enjoys music with high danceability.
+
+Q. Hypothesize about why the way you’ve calculated this aura might not be very representative of the listener. What better ways of calculating this aura would you propose?
+A. The list of the top 100 songs is heavily influence by the Spotify's algorithm that may not be fully aligned with a person's mood. Therefore, a listener may end up listening to a sogn that does not necessarily capture their inner feelings.
