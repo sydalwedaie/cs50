@@ -10,3 +10,6 @@ vendor/
 .DS_Store
 playground.c
 playground
+
+# Large Files
+week7/pset/movies/movies.db
