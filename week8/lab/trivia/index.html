@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Which one is the largest passenger jet aircraft?</h3>
+
+                <button class="answer-choice" id="choice-1">Boeing 777</button>
+                <button class="answer-choice" id="choice-2">Airbus 380</button>
+                <button class="answer-choice" id="choice-3">Airbus 340</button>
+                <button class="answer-choice" id="choice-4">Boeing 787</button>
+
+                <p id="multiple-choice-feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What's the 4 letter ICAO identifier for London Heathrow Airport?</h3>
+
+                <input autofocus placeholder="Response" id="free-response-input">
+                <button id="free-response-check">Check Answer</button>
+
+                <p id="free-response-feedback"></p>
+            </div>
+        </div>
+        <script src="/app.js"></script>
+    </body>
+</html>
