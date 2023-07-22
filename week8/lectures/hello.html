@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <header>
+        <title>
+            hello, title
+        </title>
+    </header>
+
+    <body>
+        <form>
+            <input type="text" placeholder="name" autocomplete="off" autofocus id="name">
+            <button id="greet-btn">Greet!</button>
+
+            <p id="greeting"></p>
+        </form>
+    </body>
+    <script>
+
+        let inputEl = document.getElementById("name");
+        let greetingEl = document.getElementById("greeting");
+        let greetBtnEl = document.getElementById("greet-btn")
+
+        inputEl.addEventListener('input', e => {
+            // e.preventDefault();
+            greetingEl.innerHTML = `Hello, ${this.value}`;
+
+        })
+    </script>
+</html>
