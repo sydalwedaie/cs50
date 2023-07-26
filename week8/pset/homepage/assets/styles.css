@@ -1,0 +1,95 @@
+body {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+p {
+    color: #5E6E85;
+}
+
+h1, h2, h3 {
+    color: #253347;
+}
+
+nav {
+    padding-bottom: 5rem;
+}
+
+nav .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+nav .dropdown {
+    position: absolute;
+    right: 5rem;
+}
+
+nav .dropdown .btn {
+    background-color: initial;
+    color: #5E6E85;
+    border: none;
+}
+
+nav .dropdown .btn:active {
+    background-color: initial;
+}
+
+header {
+    width: 75%;
+    background: linear-gradient(315deg, #D6E6FE 0%, rgba(214, 252, 254, 0.00) 100%);
+    padding: 5rem 25rem 10rem 5rem;
+    border-radius: 0 0 1rem 1rem;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+}
+.bmi-widget {
+    position: absolute;
+    width: 40%;
+    right: 5rem;
+    margin-top: -18rem;
+    border-radius: 1rem;
+    padding: 10px;
+}
+
+.bmi-results {
+    padding: 2rem 3rem 2rem 1rem;
+    border-radius: 0.5rem 5rem 5rem 0.5rem;
+    color: white;
+    background-color: #345FF6;
+    margin-top: 1.5rem;
+}
+
+#calculated-bmi-figure {
+    font-size: 3rem;
+}
+
+section {
+    padding: 5rem;
+}
+
+.results-explained {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.advice {
+    margin: 0 1rem 2rem;
+    border-radius: 1rem;
+    background: linear-gradient(315deg, #D6E6FE 0%, rgba(214, 252, 254, 0.00) 100%);
+}
+
+.advice h3 {
+    margin: 2rem 0 1rem;
+}
+
+.limitations .card, .resources .card {
+    border: none;
+    box-shadow: 5px 5px 25px rgba(168, 154, 218, 0.2);
+    border-radius: 1rem;
+    margin: 2rem 0;
+}
