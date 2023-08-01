@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <form action="/" method="post">
+        <!-- the name attribut connects the input to 'name' in greet() -->
+        <input autofocus autocomplete="off" type="text" name="name">
+        <button type="submit">Greet</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <header>
+        <title>Shows</title>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+    </header>
+    <body>
+
+        <input type="search" name="query" autofocus placeholder="Query">
+        <ul></ul>
+
+        <script>
+            let input = document.querySelector('input');
+            // We'll run a query everytime an input change is made
+            input.addEventListener("input", async function() {
+                // response runs the "/search" route, adding the query value from the form above
+                // the "/search" route uses a simple "GET" method to run a query on the database
+                let response = await fetch("/search?q=" + input.value);
+                let shows = await response.json();
+
+                let html = '';
+                for (let id in shows) {
+                    let title = shows[id].title;
+                    html += '<li>' + title + '</li>';
+                }
+                // Inject the result of the query into the ul element
+                document.querySelector('ul').innerHTML = html
+            })
+        </script>
+    </body>
+</html>
