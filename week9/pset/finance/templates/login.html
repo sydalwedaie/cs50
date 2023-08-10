@@ -9,9 +9,11 @@
         <p>You are already logged in!</p>
     {% else %}
         <form action="/login" method="post">
-            <input name="username" type="text" autofocus autocomplte="off" placeholder="username">
-            <input name="password" type="password" placeholder="password">
-            <button type="submit">Log In</button>
+            <div class="grid">
+                <input name="username" type="text" autofocus autocomplte="off" placeholder="username">
+                <input name="password" type="password" placeholder="password">
+            </div>
+            <button type="submit" role="button">Log In</button>
         </form>
     {% endif %}
 

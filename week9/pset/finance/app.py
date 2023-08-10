@@ -34,7 +34,8 @@ def utilities():
     return dict({
         "username": username,
         "usd": usd,
-        "format_time": time.ctime
+        "format_time": time.ctime,
+        "lookup": lookup
     })
 
 

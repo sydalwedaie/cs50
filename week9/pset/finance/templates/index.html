@@ -9,14 +9,16 @@
     <p>
         Welcome to C$50 Finance Plateform!
     </p>
-    <table class="table">
+    <table role="grid">
         <thead>
             <tr>
                 <th>Symbol</th>
                 <th>Name</th>
                 <th>Shares</th>
-                <th>Purchase Price</th>
-                <th>Total</th>
+                <th>Price</th>
+                <th>Cost Per Share</th>
+                <th>Market Value</th>
+
             </tr>
         </thead>
         <tbody>
@@ -25,6 +27,7 @@
                     <td>{{ stock.symbol }}</td>
                     <td>{{ stock.symbol }}</td>
                     <td>{{ stock.shares }}</td>
+                    <td>{{ usd(lookup(stock.symbol).price) }}</td>
                     <td>{{ usd(stock.price) }}</td>
                     <td>{{ usd(stock.shares * stock.price) }}</td>
                 </tr>
