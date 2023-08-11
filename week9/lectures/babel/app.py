@@ -17,7 +17,7 @@ def index():
     if request.method == "GET":
         page = request.args.get("page")
 
-     # Validate input
+    # Validate input
     try:
         page = int(page)
     except ValueError:
